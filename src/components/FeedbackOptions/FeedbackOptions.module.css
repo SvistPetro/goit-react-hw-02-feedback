@@ -1,0 +1,8 @@
+.button {
+    cursor: pointer;
+}
+
+.thumb {
+    display: flex;
+    gap: 10px;
+}

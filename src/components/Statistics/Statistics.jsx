@@ -1,30 +1,23 @@
 import { Component } from 'react';
-
+import css from './Statistics.module.css';
 
 class Statistics extends Component {
 
     render() {
-        const { good, neutral, bad, handleClickButton, countTotalFeedback, countPositiveFeedbackPercentage } = this.props;
+        const { good, neutral, bad, countTotalFeedback, countPositiveFeedbackPercentage } = this.props;
         const total = countTotalFeedback();
         const percent = countPositiveFeedbackPercentage(total);
 
         return (
-            <>
-                <h1>Please leave feedback</h1>
-                <button type="button" name="good" onClick={handleClickButton}>Good</button>
-                <button type="button" name="neutral" onClick={handleClickButton}>Neutral</button>
-                <button type="button" name="bad" onClick={handleClickButton}>Bad</button>
-                <h2>Statistics</h2>
+            <div className={css.thumb}>
                 <span>Good: {good}</span>
                 <span>Natural: {neutral}</span>
                 <span>Bad: {bad}</span>
                 <span>Total: {total}</span>
                 <span>Positive feedback: {percent}%</span>
-            </>
-
+            </div>
         )
     }
-
 }
 
 export { Statistics };
