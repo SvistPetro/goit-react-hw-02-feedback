@@ -1,25 +1,25 @@
-// const { Component } = require("react");
 import { Component } from 'react';
 
 
 class Statistics extends Component {
-    state = {
-        good: 0,
-        neutral: 0,
-        bad: 0
-      }
 
     render() {
+        const { good, neutral, bad, handleClickButton, countTotalFeedback, countPositiveFeedbackPercentage } = this.props;
+        const total = countTotalFeedback();
+        const percent = countPositiveFeedbackPercentage(total);
+
         return (
             <>
                 <h1>Please leave feedback</h1>
-                <button type="button">Good</button>
-                <button type="button">Natural</button>
-                <button type="button">Bad</button>
+                <button type="button" name="good" onClick={handleClickButton}>Good</button>
+                <button type="button" name="neutral" onClick={handleClickButton}>Neutral</button>
+                <button type="button" name="bad" onClick={handleClickButton}>Bad</button>
                 <h2>Statistics</h2>
-                <span>Good:{this.state.good}</span>
-                <span>Natural:{this.state.neutral}</span>
-                <span>Bad:{this.state.bad}</span>
+                <span>Good: {good}</span>
+                <span>Natural: {neutral}</span>
+                <span>Bad: {bad}</span>
+                <span>Total: {total}</span>
+                <span>Positive feedback: {percent}%</span>
             </>
 
         )
@@ -27,4 +27,4 @@ class Statistics extends Component {
 
 }
 
-export default Statistics;
+export { Statistics };
