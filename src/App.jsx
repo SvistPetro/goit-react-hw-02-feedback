@@ -38,7 +38,7 @@ export class App extends Component {
       <>
         <Section title="Please leave feedback">
           <FeedbackOptions 
-          handleClickButton={this.handleClickButton}
+          onLeaveFeedback={this.handleClickButton}
           />
         </Section>
         <Section title="Statistics">
@@ -48,8 +48,8 @@ export class App extends Component {
             good={this.state.good}
             neutral={this.state.neutral} 
             bad={this.state.bad} 
-            countTotalFeedback={this.countTotalFeedback}
-            countPositiveFeedbackPercentage={this.countPositiveFeedbackPercentage}
+            total={this.countTotalFeedback}
+            positivePercentage={this.countPositiveFeedbackPercentage}
             />)
           }
         </Section>
